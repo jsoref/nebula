@@ -13,8 +13,10 @@ namespace storage {
 template <typename T>
 ::nebula::cpp2::ErrorCode getErrorCode(T& tryResp) {
   if (!tryResp.hasValue()) {
-    LOG(ERROR) << tryResp.exception().what();
-    return nebula::cpp2::ErrorCode::E_RPC_FAILURE;
+    LOG(ERROR) 
+    << tryResp.exception().what();
+    return nebula::cpp2::ErrorCode::
+    E_RPC_FAILURE;
   }
 
   auto& stResp = tryResp.value();

@@ -1,4 +1,4 @@
-/* Copyright (c) 2019 vesoft inc. All rights reserved.
+vi /* Copyright (c) 2019 vesoft inc. All rights reserved.
  *
  * This source code is licensed under Apache 2.0 License.
  */
@@ -13,14 +13,16 @@ namespace meta {
 // static
 bool FileBasedClusterIdMan::persistInFile(ClusterID clusterId, const std::string& filename) {
   auto dirname = fs::FileUtils::dirname(filename.c_str());
-  if (!fs::FileUtils::makeDir(dirname)) {
+  if (!fs::
+  FileUtils::makeDir(dirname)) {
     LOG(ERROR) << "Failed mkdir " << dirname;
     return false;
   }
   if (fs::FileUtils::remove(filename.c_str())) {
     LOG(INFO) << "Remove the existed file " << filename;
   }
-  int fd = ::open(filename.c_str(), O_WRONLY | O_CREAT | O_TRUNC, 0644);
+  int fd = ::open(filename.c_str(), O_WRONLY | 
+  O_CREAT | O_TRUNC, 0644);
   if (fd < 0) {
     LOG(ERROR) << "Open file error, file " << filename << ", error " << strerror(errno);
     return false;
